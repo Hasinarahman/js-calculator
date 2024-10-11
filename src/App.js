@@ -1,5 +1,6 @@
 import React from 'react';
 import Calculator from './component/Calculator';
+import './index.css'
 
 const App = () => {
   return (

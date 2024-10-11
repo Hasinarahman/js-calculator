@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { evaluate } from 'mathjs'; // Import evaluate from math.js
 
 const Calculator = () => {
   const [input, setInput] = useState('0');
@@ -28,12 +27,21 @@ const Calculator = () => {
     if (evaluated) {
       setFormula(input + operator);
       setEvaluated(false);
-    } else if (!/[+\-*/]$/.test(formula)) {
-      setFormula(formula + operator);
+    } else if (formula.length === 0) {
+      return;
     } else {
-      setFormula(formula.slice(0, -1) + operator);
+      const lastChar = formula[formula.length - 1];
+
+      // If the last character is an operator, replace it with the new operator
+      if (/[+\-*/]$/.test(lastChar)) {
+        if (operator !== '-' || lastChar !== '-') { // Allow double negative sign
+          setFormula(formula.slice(0, -1) + operator);
+        }
+      } else {
+        setFormula(formula + operator);
+      }
+      setInput(operator);
     }
-    setInput(operator);
   };
 
   const handleDecimal = () => {
@@ -49,15 +57,68 @@ const Calculator = () => {
 
   const handleEvaluate = () => {
     try {
-      // Use math.js to evaluate the formula safely
-      let result = evaluate(formula);
+      const result = evaluate(formula); // Use custom evaluate function
       setInput(result.toString());
       setFormula(formula + '=' + result);
       setEvaluated(true);
     } catch (error) {
       setInput('Error');
-      setEvaluated(true);
     }
+  };
+
+  // Custom evaluation function
+  const evaluate = (expression) => {
+    const tokens = expression.match(/(\d+\.?\d*|[-+*/])/g);
+    const numStack = [];
+    const opStack = [];
+
+    const precedence = {
+      '+': 1,
+      '-': 1,
+      '*': 2,
+      '/': 2,
+    };
+
+    const applyOperator = (operator) => {
+      const b = numStack.pop();
+      const a = numStack.pop();
+      switch (operator) {
+        case '+':
+          numStack.push(a + b);
+          break;
+        case '-':
+          numStack.push(a - b);
+          break;
+        case '*':
+          numStack.push(a * b);
+          break;
+        case '/':
+          numStack.push(a / b);
+          break;
+        default:
+          break;
+      }
+    };
+
+    tokens.forEach((token) => {
+      if (!isNaN(token)) {
+        numStack.push(parseFloat(token));
+      } else if (token in precedence) {
+        while (
+          opStack.length &&
+          precedence[opStack[opStack.length - 1]] >= precedence[token]
+        ) {
+          applyOperator(opStack.pop());
+        }
+        opStack.push(token);
+      }
+    });
+
+    while (opStack.length) {
+      applyOperator(opStack.pop());
+    }
+
+    return numStack[0];
   };
 
   return (
