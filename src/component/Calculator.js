@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
+
 const Calculator = () => {
   const [input, setInput] = useState('0');
   const [formula, setFormula] = useState('');
   const [evaluated, setEvaluated] = useState(false);
+  
 
   const handleClear = () => {
     setInput('0');
@@ -94,6 +96,9 @@ const Calculator = () => {
           break;
         case '/':
           numStack.push(a / b);
+          break
+        case '+()-':
+            numStack.push(a + (-b))
           break;
         default:
           break;
@@ -128,11 +133,11 @@ const Calculator = () => {
         <div className="mb-4">
           <div
             id="display"
-            className="bg-gray-200 p-4 rounded-lg text-right text-xl mb-2"
+            className="bg-black p-4 rounded-lg text-right text-xl mb-2 text-white"
           >
             {input}
           </div>
-          <div className="bg-gray-400 p-4 rounded-lg text-right text-sm font-bold">
+          <div className="bg-black p-4 rounded-lg text-right text-sm font-bold text-white">
             {formula}
           </div>
         </div>
@@ -149,14 +154,14 @@ const Calculator = () => {
 
           <button
             id="divide"
-            className="bg-blue-500 text-white p-4 rounded-lg text-xl hover:bg-blue-700 focus:outline-none"
+            className="bg-gray-300  text-black p-4 rounded-lg text-xl hover:bg-blue-700 focus:outline-none"
             onClick={() => handleOperator('/')}
           >
             /
           </button>
           <button
             id="multiply"
-            className="bg-blue-500 text-white p-4 rounded-lg text-xl hover:bg-blue-700 focus:outline-none"
+            className="bg-gray-300  text-black p-4 rounded-lg text-xl hover:bg-blue-700 focus:outline-none"
             onClick={() => handleOperator('*')}
           >
             *
@@ -185,7 +190,7 @@ const Calculator = () => {
           </button>
           <button
             id="subtract"
-            className="bg-blue-500 text-white p-4 rounded-lg text-xl hover:bg-blue-700 focus:outline-none"
+            className="bg-gray-300  text-black p-4 rounded-lg text-xl hover:bg-blue-700 focus:outline-none"
             onClick={() => handleOperator('-')}
           >
             -
@@ -214,7 +219,7 @@ const Calculator = () => {
           </button>
           <button
             id="add"
-            className="bg-blue-500 text-white p-4 rounded-lg text-xl hover:bg-blue-700 focus:outline-none"
+            className="bg-gray-300  text-black p-4 rounded-lg text-xl hover:bg-blue-700 focus:outline-none"
             onClick={() => handleOperator('+')}
           >
             +
