@@ -143,7 +143,7 @@ const Calculator = () => {
         {/* Buttons */}
         <div className="grid grid-cols-4 gap-4">
           <button
-            type='button'
+            type="button"
             id="clear"
             className="bg-red-500 text-white p-4 col-span-2 rounded-lg text-xl hover:bg-red-700 focus:outline-none"
             onClick={handleClear}
@@ -152,7 +152,7 @@ const Calculator = () => {
           </button>
 
           <button
-            type='button'
+            type="button"
             id="divide"
             className="bg-gray-300  text-black p-4 rounded-lg text-xl hover:bg-blue-700 focus:outline-none"
             onClick={() => handleOperator('/')}
@@ -160,7 +160,7 @@ const Calculator = () => {
             /
           </button>
           <button
-            type='button'
+            type="button"
             id="multiply"
             className="bg-gray-300  text-black p-4 rounded-lg text-xl hover:bg-blue-700 focus:outline-none"
             onClick={() => handleOperator('*')}
@@ -169,7 +169,7 @@ const Calculator = () => {
           </button>
 
           <button
-            type='button'
+            type="button"
             id="seven"
             className="bg-gray-300 p-4 rounded-lg text-xl hover:bg-gray-500 focus:outline-none"
             onClick={() => handleNumber('7')}
@@ -177,7 +177,7 @@ const Calculator = () => {
             7
           </button>
           <button
-            type='button'
+            type="button"
             id="eight"
             className="bg-gray-300 p-4 rounded-lg text-xl hover:bg-gray-500 focus:outline-none"
             onClick={() => handleNumber('8')}
@@ -185,7 +185,7 @@ const Calculator = () => {
             8
           </button>
           <button
-            type='button'
+            type="button"
             id="nine"
             className="bg-gray-300 p-4 rounded-lg text-xl hover:bg-gray-500 focus:outline-none"
             onClick={() => handleNumber('9')}
@@ -193,7 +193,7 @@ const Calculator = () => {
             9
           </button>
           <button
-            type='button'
+            type="button"
             id="subtract"
             className="bg-gray-300  text-black p-4 rounded-lg text-xl hover:bg-blue-700 focus:outline-none"
             onClick={() => handleOperator('-')}
@@ -202,7 +202,7 @@ const Calculator = () => {
           </button>
 
           <button
-            type='button'
+            type="button"
             id="four"
             className="bg-gray-300 p-4 rounded-lg text-xl hover:bg-gray-500 focus:outline-none"
             onClick={() => handleNumber('4')}
@@ -210,7 +210,7 @@ const Calculator = () => {
             4
           </button>
           <button
-            type='button'
+            type="button"
             id="five"
             className="bg-gray-300 p-4 rounded-lg text-xl hover:bg-gray-500 focus:outline-none"
             onClick={() => handleNumber('5')}
@@ -218,7 +218,7 @@ const Calculator = () => {
             5
           </button>
           <button
-            type='button'
+            type="button"
             id="six"
             className="bg-gray-300 p-4 rounded-lg text-xl hover:bg-gray-500 focus:outline-none"
             onClick={() => handleNumber('6')}
@@ -226,7 +226,7 @@ const Calculator = () => {
             6
           </button>
           <button
-            type='button'
+            type="button"
             id="add"
             className="bg-gray-300  text-black p-4 rounded-lg text-xl hover:bg-blue-700 focus:outline-none"
             onClick={() => handleOperator('+')}
@@ -235,7 +235,7 @@ const Calculator = () => {
           </button>
 
           <button
-            type='button'
+            type="button"
             id="one"
             className="bg-gray-300 p-4 rounded-lg text-xl hover:bg-gray-500 focus:outline-none"
             onClick={() => handleNumber('1')}
@@ -243,7 +243,7 @@ const Calculator = () => {
             1
           </button>
           <button
-            type='button'
+            type="button"
             id="two"
             className="bg-gray-300 p-4 rounded-lg text-xl hover:bg-gray-500 focus:outline-none"
             onClick={() => handleNumber('2')}
@@ -251,7 +251,7 @@ const Calculator = () => {
             2
           </button>
           <button
-            type='button'
+            type="button"
             id="three"
             className="bg-gray-300 p-4 rounded-lg text-xl hover:bg-gray-500 focus:outline-none"
             onClick={() => handleNumber('3')}
@@ -260,7 +260,7 @@ const Calculator = () => {
           </button>
 
           <button
-            type='button'
+            type="button"
             id="equals"
             className="bg-green-500 text-white p-4 rounded-lg text-xl hover:bg-green-700 focus:outline-none row-span-2"
             onClick={handleEvaluate}
@@ -269,7 +269,7 @@ const Calculator = () => {
           </button>
 
           <button
-            type='button'
+            type="button"
             id="zero"
             className="bg-gray-300 p-4 col-span-2 rounded-lg text-xl hover:bg-gray-500 focus:outline-none"
             onClick={() => handleNumber('0')}
@@ -278,7 +278,7 @@ const Calculator = () => {
           </button>
 
           <button
-            type='button'
+            type="button"
             id="decimal"
             className="bg-gray-300 p-4 rounded-lg text-xl hover:bg-gray-500 focus:outline-none"
             onClick={handleDecimal}
