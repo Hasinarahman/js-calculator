@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 
-
 const Calculator = () => {
   const [input, setInput] = useState('0');
   const [formula, setFormula] = useState('');
   const [evaluated, setEvaluated] = useState(false);
-  
 
   const handleClear = () => {
     setInput('0');
@@ -98,7 +96,7 @@ const Calculator = () => {
           numStack.push(a / b);
           break
         case '+()-':
-            numStack.push(a + (-b))
+          numStack.push(a + (-b))
           break;
         default:
           break;
