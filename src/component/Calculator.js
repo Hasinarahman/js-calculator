@@ -28,7 +28,6 @@ const Calculator = () => {
       setFormula(input + operator);
       setEvaluated(false);
     } else if (formula.length === 0) {
-      return;
     } else {
       const lastChar = formula[formula.length - 1];
 
@@ -94,9 +93,9 @@ const Calculator = () => {
           break;
         case '/':
           numStack.push(a / b);
-          break
+          break;
         case '+()-':
-          numStack.push(a + (-b))
+          numStack.push(a + (-b));
           break;
         default:
           break;
