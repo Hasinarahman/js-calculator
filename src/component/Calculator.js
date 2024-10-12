@@ -28,6 +28,7 @@ const Calculator = () => {
       setFormula(input + operator);
       setEvaluated(false);
     } else if (formula.length === 0) {
+
     } else {
       const lastChar = formula[formula.length - 1];
 
@@ -40,17 +41,6 @@ const Calculator = () => {
         setFormula(formula + operator);
       }
       setInput(operator);
-    }
-  };
-
-  const handleDecimal = () => {
-    if (evaluated) {
-      setInput('0.');
-      setFormula('0.');
-      setEvaluated(false);
-    } else if (!input.includes('.')) {
-      setInput(`${input}.`);
-      setFormula(`${formula}.`);
     }
   };
 
@@ -76,6 +66,17 @@ const Calculator = () => {
       '-': 1,
       '*': 2,
       '/': 2,
+    };
+
+    const handleDecimal = () => {
+      if (evaluated) {
+        setInput('0.');
+        setFormula('0.');
+        setEvaluated(false);
+      } else if (!input.includes('.')) {
+        setInput(`${input}.`);
+        setFormula(`${formula}.`);
+      }
     };
 
     const applyOperator = (operator) => {
@@ -115,7 +116,6 @@ const Calculator = () => {
         opStack.push(token);
       }
     });
-
 
     while (opStack.length) {
       applyOperator(opStack.pop());
