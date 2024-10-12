@@ -103,18 +103,19 @@ const Calculator = () => {
     };
 
     tokens.forEach((token) => {
-      if (!isNaN(token)) {
+      if (!Number.isNaN(parseFloat(token))) { // Use Number.isNaN for more reliable type checking
         numStack.push(parseFloat(token));
       } else if (token in precedence) {
         while (
-          opStack.length &&
-          precedence[opStack[opStack.length - 1]] >= precedence[token]
+          opStack.length
+          && precedence[opStack[opStack.length - 1]] >= precedence[token]
         ) {
           applyOperator(opStack.pop());
         }
         opStack.push(token);
       }
     });
+    
 
     while (opStack.length) {
       applyOperator(opStack.pop());
