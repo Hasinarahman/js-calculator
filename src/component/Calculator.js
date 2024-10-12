@@ -28,7 +28,7 @@ const Calculator = () => {
       setFormula(input + operator);
       setEvaluated(false);
     } else if (formula.length === 0) {
-       // Handle case where formula is empty if needed
+      // Handle case where formula is empty if needed
     } else {
       const lastChar = formula[formula.length - 1];
 
@@ -52,17 +52,6 @@ const Calculator = () => {
     } else if (!input.includes('.')) {
       setInput(`${input}.`);
       setFormula(`${formula}.`);
-    }
-  };
-
-  const handleEvaluate = () => {
-    try {
-      const result = evaluate(formula); // Use custom evaluate function
-      setInput(result.toString());
-      setFormula(`${formula}=${result}`);
-      setEvaluated(true);
-    } catch (error) {
-      setInput('Error');
     }
   };
 
@@ -95,9 +84,6 @@ const Calculator = () => {
         case '/':
           numStack.push(a / b);
           break;
-        case '+()-':
-          numStack.push(a + (-b));
-          break;
         default:
           break;
       }
@@ -116,13 +102,23 @@ const Calculator = () => {
         opStack.push(token);
       }
     });
-    
 
     while (opStack.length) {
       applyOperator(opStack.pop());
     }
 
     return numStack[0];
+  };
+
+  const handleEvaluate = () => {
+    try {
+      const result = evaluate(formula); // Use custom evaluate function
+      setInput(result.toString());
+      setFormula(`${formula}=${result}`);
+      setEvaluated(true);
+    } catch (error) {
+      setInput('Error');
+    }
   };
 
   return (
