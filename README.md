@@ -7,7 +7,7 @@
 
 ## Demo 📸
 
-![]()
+![javascript calculator](https://github.com/user-attachments/assets/15e428e2-e6a9-4f52-b3fe-9ac2bb3997d6))
 
 ## Live Link
 https://famous-klepon-e0f047.netlify.app
