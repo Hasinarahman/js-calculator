@@ -49,8 +49,8 @@ const Calculator = () => {
       setFormula('0.');
       setEvaluated(false);
     } else if (!input.includes('.')) {
-      setInput(input + '.');
-      setFormula(formula + '.');
+      setInput(`${input}.`);
+      setFormula(`${formula}.`);
     }
   };
 
@@ -58,7 +58,7 @@ const Calculator = () => {
     try {
       const result = evaluate(formula); // Use custom evaluate function
       setInput(result.toString());
-      setFormula(formula + '=' + result);
+      setFormula(`${formula}=${result}`);
       setEvaluated(true);
     } catch (error) {
       setInput('Error');
@@ -115,7 +115,7 @@ const Calculator = () => {
         opStack.push(token);
       }
     });
-    
+
 
     while (opStack.length) {
       applyOperator(opStack.pop());
