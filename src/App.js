@@ -1,11 +1,11 @@
 import React from 'react';
 import Calculator from './component/Calculator';
- // Adjust the import path as needed
+// Adjust the import path as needed
 
-const App = () => {
+const App =() => {
   return (
     <div>
-    <Calculator />
+      <Calculator />
     </div>
   );
 };
