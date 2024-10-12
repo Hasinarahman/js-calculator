@@ -1,11 +1,13 @@
 import React from 'react';
 import Calculator from './component/Calculator';
-import './index.css';
+ // Adjust the import path as needed
 
 const App = () => {
-  <div className="flex justify-center items-center min-h-screen bg-gray-100">
+  return (
+    <div>
     <Calculator />
-  </div>;
+    </div>
+  );
 };
 
 export default App;
